@@ -1,0 +1,35 @@
+{
+  "name": "my-store",
+  "version": "0.0.1",
+  "description": "This is an app that use express framework of node.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dereksamuel/my-store.git"
+  },
+  "keywords": [
+    "store"
+  ],
+  "author": "Derek Paul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dereksamuel/my-store/issues"
+  },
+  "homepage": "https://github.com/dereksamuel/my-store#readme",
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express.js": "^1.0.0"
+  }
+}
