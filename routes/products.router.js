@@ -1,4 +1,6 @@
 const express = require("express");
+const { validatorHandler } = require("../middlewares/validator.handler");
+const { getProductSchema } = require("../schemas/product.schema");
 const ProductsService = require("../services/product.service");
 
 let router = express.Router();// traer mi router
@@ -15,16 +17,19 @@ router.get("/filter", (req, res) => {
   res.send("I am a filter");
 }); // se choca con :id si no sigues esto: todo LO ESPECIFICO DEBE IR ANTES DE LO QUE ES DINAMICO
 
-router.get("/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const product = await service.findOne(id);
+router.get("/:id",
+  validatorHandler(getProductSchema, "params"),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const product = await service.findOne(id);
 
-    res.status(200).json(product);
-  } catch (error) {
-    next(error);
+      res.status(200).json(product);
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 router.post("/", async (req, res) => {
   const body = req.body;

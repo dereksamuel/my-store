@@ -14,4 +14,5 @@ function routerApi(app) {
 }
 
 module.exports = routerApi;
-//https://platzi.com/clases/2485-backend-nodejs/41750-instalacion-de-postman-o-insomia/
+// https://platzi.com/clases/2485-backend-nodejs/41750-instalacion-de-postman-o-insomia/
+// https://platzi.com/clases/2485-backend-nodejs/41762-middlewares-populares-en-expressjs/

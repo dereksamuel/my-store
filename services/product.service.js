@@ -18,6 +18,7 @@ class ProductsService {
           name: faker.commerce.productName(),
           price: parseInt(faker.commerce.price()),
           image: faker.image.imageUrl(),
+          isBlock: faker.datatype.boolean(),
         },
       ];
     }
@@ -44,7 +45,11 @@ class ProductsService {
 
   async findOne(id) {
     const name = this.getTotal(); // show Middleware error identified by four params
-    return this.products.find((pd) => pd.id === id);
+    const product = this.products.find((pd) => pd.id === id);
+    if (product.isBlock) {
+      throw boom.conflict("Product is block");
+    }
+    return product;
   }
 
   async update(id, body) {
